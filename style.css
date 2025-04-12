@@ -1,0 +1,285 @@
+/* 全局样式 */
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Pacifico', cursive;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #89cff0);
+    z-index: -1;
+    animation: gradient 10s infinite;
+}
+
+@keyframes gradient {
+    50% { background-position: 200% 50%; }
+}
+
+/* 流星雨样式 */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: meteor-move 2s linear infinite;
+    opacity: 0.8;
+    transform: translateZ(0);
+}
+
+@keyframes meteor-move {
+    0% {
+        transform: translateX(-50px) translateY(-50px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(120%) translateY(80%);
+        opacity: 0;
+    }
+}
+
+/* 气泡特效 */
+.bubble {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 107, 107, 0.5);
+    border-radius: 50%;
+    animation: bubble-rise 2s linear infinite;
+    transform: translateZ(0);
+}
+
+@keyframes bubble-rise {
+    0% {
+        top: 100%;
+        opacity: 0.5;
+    }
+    100% {
+        top: -20%;
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* 核心文字动画 */
+.romantic-text {
+    display: inline-block;
+    animation: pulse 1.5s infinite;
+    text-shadow:
+        0 0 10px rgba(255, 107, 107, 0.8),
+        0 0 20px rgba(255, 107, 107, 0.6);
+    transform: translateZ(0);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05) rotate(-2deg);
+        opacity: 0.9;
+    }
+}
+
+.question-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8vw;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    animation: float 3s infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-5vw);
+    }
+}
+
+/* 按钮样式 */
+.button-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
+
+.agree-btn, .disagree-btn {
+    padding: 20px 40px;
+    background: linear-gradient(45deg, #ff7675, #fd79a8);
+    border: 3px solid #ff6b6b;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.8);
+}
+
+.disagree-btn {
+    background: linear-gradient(45deg, #ff7675, #ff6b6b);
+}
+
+/* 音乐控制按钮 */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.play-btn {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #ff7675, #fd79a8);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.8);
+    font-size: 1.2rem;
+}
+
+.volume-slider-container {
+    margin-top: 10px;
+    width: 100px;
+}
+
+.volume-slider {
+    width: 100%;
+    -webkit-appearance: none;
+    background: #ddd;
+    outline: none;
+    height: 5px;
+    border-radius: 5px;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* 玫瑰花全屏背景 */
+.rose-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    display: none;
+}
+
+/* 假设玫瑰图片和 CSS 文件在同一目录 */
+.rose {
+    width: 40vw;
+    height: 40vw;
+    background: url('rose.png') no-repeat center; /* 图片在同一目录 */
+    background-size: contain;
+    animation: bloom 2s ease;
+    transform: translateZ(0);
+}
+
+@keyframes bloom {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.romantic-message {
+    font-size: 5vw;
+    color: white;
+    margin-top: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 纯CSS花雨特效 */
+.flower-rain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.flower-rain::before,
+.flower-rain::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ff6b6b, #fff);
+    border-radius: 50%;
+    animation: flower-fall 3s linear infinite;
+    opacity: 0.8;
+}
+
+.flower-rain::before {
+    top: -20px;
+    left: 20%;
+    animation-delay: -1s;
+    transform: rotate(45deg);
+}
+
+.flower-rain::after {
+    top: -40px;
+    left: 70%;
+    animation-delay: -2s;
+    transform: rotate(-45deg);
+}
+
+@keyframes flower-fall {
+    0% {
+        transform: translateY(-100%) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(120%) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+/* 不同意提示样式 */
+.disagree-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 107, 107, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}

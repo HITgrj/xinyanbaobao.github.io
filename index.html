@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>终极浪漫表白</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- CSS 文件在同一目录 -->
+</head>
+<body>
+    <!-- 音乐控制 -->
+    <audio id="romance-music" loop>
+        <source src="love.mp3" type="audio/mpeg"> <!-- 音频文件在同一目录 -->
+        您的浏览器不支持 audio 标签。
+    </audio>
+    <div class="music-control">
+        <button class="play-btn" title="播放/暂停音乐">&#9658;</button>
+        <div class="volume-slider-container">
+            <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider">
+        </div>
+    </div>
+
+    <!-- 流星雨背景 -->
+    <div class="stars-container"></div>
+
+    <!-- 气泡特效 -->
+    <div class="bubbles-container"></div>
+
+    <!-- 浪漫渐变背景 -->
+    <div class="background"></div>
+
+    <!-- 核心文字 -->
+    <div class="question-text">
+        <span class="romantic-text">姜昕妍，你愿意做我女朋友吗？</span>
+    </div>
+
+    <!-- 新增双按钮 -->
+    <div class="button-container">
+        <button class="agree-btn">同意</button>
+        <button class="disagree-btn">不同意</button>
+    </div>
+
+    <!-- 玫瑰花全屏背景 -->
+    <div class="rose-container" style="display: none;">
+        <div class="rose"></div>
+        <div class="romantic-message">😗❤️~</div>
+        <div class="flower-rain"></div> <!-- 纯CSS花雨 -->
+    </div>
+
+    <!-- 不同意的提示 -->
+    <div class="disagree-container" style="display: none;">
+        <div class="romantic-message">
+            不同意也得同意！<br>
+            你逃不掉的～❤️
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- JS 文件在同一目录 -->
+</body>
+</html>
